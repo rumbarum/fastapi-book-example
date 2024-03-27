@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["Bareum Han <rumbarum@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpie = "^3.2.2"
+httpx = "^0.26.0"
+requests = "^2.31.0"
+pytest = "^7.4.3"
+mypy = "^1.8.0"
+flask = "^3.0.1"
+gunicorn = "^21.2.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.9"
+bcrypt = "4.1.2"
+hypothesis = "^6.98.11"
+schemathesis = "^3.25.3"
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
+sqlalchemy = "^2.0.27"
+faker = "^23.2.1"
+transformers = "^4.38.1"
+torch = "^2.2.1"
+torchvision = "^0.17.1"
+aiofiles = "^23.2.1"
+tabulate = "^0.9.0"
+pandas = "^2.2.1"
+kaleido = "0.2.1"
+country-converter = "^1.2"
+fastapi = {extras = ["all"], version = "^0.110.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+use_shortcuts = true
