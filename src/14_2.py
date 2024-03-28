@@ -1,8 +1,8 @@
 from sqlalchemy import MetaData, Table, Column, Text
-from sqlalchemy import create_engine, insert
+from sqlalchemy import create_engine, select, Row
 
-
-conn = create_engine("sqlite:///cryptid.db")
+engine = create_engine("sqlite:///db/cryptid.db")
+conn = engine.connect()
 meta = MetaData()
 explorer_table = Table(
     "explorer",
@@ -11,8 +11,10 @@ explorer_table = Table(
     Column("country", Text),
     Column("description", Text),
 )
-insert(explorer_table).values(
-    name="Beau Buffette",
-    country="US",
-    description="...",
-)
+
+def get_one(name: str) -> Row | None:
+    stmt = select(explorer_table).where(explorer_table.c.name==name)
+    result = conn.execute(stmt)
+    return result.fetchone()
+
+print(get_one("yeti"))
