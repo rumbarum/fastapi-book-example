@@ -12,3 +12,5 @@ async def a():
 
 async def main():
     await asyncio.gather(q(), a())
+
+asyncio.run(main())
