@@ -60,7 +60,7 @@ from fastapi import Response
 import plotly.express as px
 
 
-@router.get("/test")
+@router.get("/test/")
 def test():
     df = px.data.iris()
     fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species")
