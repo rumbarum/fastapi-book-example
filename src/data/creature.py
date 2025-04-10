@@ -50,7 +50,7 @@ def create(creature: Creature) -> Creature:
     try:
         curs.execute(qry, params)
     except IntegrityError:
-        raise Duplicate(msg=f"Explorer {creature.name} already exists")
+        raise Duplicate(msg=f"Creature {creature.name} already exists")
     return get_one(creature.name)
 
 
@@ -95,5 +95,5 @@ def delete(name: str) -> bool:
     params = {"name": name}
     curs.execute(qry, params)
     if curs.rowcount != 1:
-        raise Missing(msg=f"Explorer {name} not found")
+        raise Missing(msg=f"Creature {name} not found")
     return True
